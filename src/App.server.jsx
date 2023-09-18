@@ -32,6 +32,7 @@ function App({request}) {
             <FileRoutes
               basePath={countryCode ? `/${countryCode}/` : undefined}
             />
+          
             <Route path="*" page={<NotFound />} />
           </Router>
         </CartProvider>

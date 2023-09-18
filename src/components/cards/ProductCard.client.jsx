@@ -45,7 +45,7 @@ export function ProductCard({product, label, className, loading, onClick}) {
           </Text>
           {image && (
             <Image
-              className="aspect-[4/5] w-full object-cover fadeIn"
+              className="aspect-[4/5] w-[380px] object-cover fadeIn"
               widths={[320]}
               sizes="320px"
               loaderOptions={{
