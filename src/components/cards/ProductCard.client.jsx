@@ -7,11 +7,13 @@ import {
   useMoney,
 } from '@shopify/hydrogen';
 
-import {Text} from '~/components';
-import {isDiscounted, isNewArrival} from '~/lib/utils';
-import {getProductPlaceholder} from '~/lib/placeholders';
+import { Text } from '~/components';
+import { isDiscounted, isNewArrival } from '~/lib/utils';
+import { getProductPlaceholder } from '~/lib/placeholders';
+import { Button } from '../index';
+import { useState } from 'react';
 
-export function ProductCard({product, label, className, loading, onClick}) {
+export function ProductCard({ product, label, className, loading, onClick }) {
   let cardLabel;
 
   const cardData = product?.variants ? product : getProductPlaceholder();
@@ -33,7 +35,8 @@ export function ProductCard({product, label, className, loading, onClick}) {
   const styles = clsx('grid gap-6', className);
 
   return (
-    <Link onClick={onClick} to={`/products/${product.handle}`}>
+    // <Link onClick={onClick} to={`/products/${product.handle}`}>
+    <>
       <div className={styles}>
         <div className="card-image aspect-[4/5] bg-primary/5">
           <Text
@@ -81,12 +84,15 @@ export function ProductCard({product, label, className, loading, onClick}) {
           </div>
         </div>
       </div>
-    </Link>
+      <Link onClick={onClick} to={`/products/${product.handle}`}>
+      <button className='bg-orange-800 w-full py-1 text-white'>Add to Cart</button>
+      </Link>
+    </>
   );
 }
 
-function CompareAtPrice({data, className}) {
-  const {currencyNarrowSymbol, withoutTrailingZerosAndCurrency} =
+function CompareAtPrice({ data, className }) {
+  const { currencyNarrowSymbol, withoutTrailingZerosAndCurrency } =
     useMoney(data);
 
   const styles = clsx('strike', className);

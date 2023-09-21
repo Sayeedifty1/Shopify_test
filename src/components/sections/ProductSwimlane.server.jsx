@@ -50,7 +50,7 @@ function ProductCards({products}) {
     {products.map((product) => (
       <div key={product.id} className="snap-start w-80 border border-black ">
         <ProductCard product={product} className={'snap-start w-80'} />
-        <button className='bg-orange-800 w-full py-1 text-white'>Add to Cart</button>
+        
        
       </div>
     ))}
